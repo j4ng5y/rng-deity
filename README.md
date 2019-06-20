@@ -9,7 +9,7 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Asatru [X]
 * Bahai [X]
 * Brahma Kumari [X]
-* The Branch Dividians
+* The Branch Dividians [X]
 * Buddhist [X]
 * Celtic
 * Chen Tao
