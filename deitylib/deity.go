@@ -86,4 +86,7 @@ func BuildDeityStruct() {
 	createAmishDeities()
 	createAsatruDeities()
 	createBuddhistDeities()
+	createBahaiDeities()
+	createBrahamKumariDeities()
+	createBranchDividianDeities()
 }

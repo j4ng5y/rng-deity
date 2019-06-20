@@ -7,8 +7,8 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Aleph
 * Amish [X]
 * Asatru [X]
-* Bahai
-* Brahma Kumari
+* Bahai [X]
+* Brahma Kumari [X]
 * The Branch Dividians
 * Buddhist [X]
 * Celtic
