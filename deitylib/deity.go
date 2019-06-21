@@ -62,6 +62,8 @@ func (Ds *Deities) GetRandomDeity() {
 
 	if deity.Religion == "Buddhist" {
 		title = "Buddah"
+	} else if deity.Religion == "Jedi" {
+		title = "Influencer"
 	} else {
 		if deity.Sex == "Male" {
 			title = "God"
@@ -89,4 +91,6 @@ func BuildDeityStruct() {
 	createBahaiDeities()
 	createBrahamKumariDeities()
 	createBranchDividianDeities()
+	createJediDeities()
+	createCelticDeities()
 }
