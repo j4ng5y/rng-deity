@@ -96,4 +96,7 @@ func BuildDeityStruct() {
 	createChenTaoDeities()
 	createChineseDeities()
 	createChristianDeities()
+	createChristadelphianDeities()
+	createConcernedChristianDeities()
+	createFamilyOfGodDeities()
 }

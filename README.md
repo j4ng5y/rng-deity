@@ -26,7 +26,7 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Ebionites
 * Eckankar
 * Egyptian
-* Family of God
+* Family of God [X]
 * Gnosticism
 * Greek
 * Hare Krishna
