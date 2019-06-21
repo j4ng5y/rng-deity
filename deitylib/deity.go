@@ -93,4 +93,7 @@ func BuildDeityStruct() {
 	createBranchDividianDeities()
 	createJediDeities()
 	createCelticDeities()
+	createChenTaoDeities()
+	createChineseDeities()
+	createChristianDeities()
 }

@@ -12,11 +12,11 @@ This is a simple little app that outputs a single, random deity (in the format o
 * The Branch Dividians [X]
 * Buddhist [X]
 * Celtic [X]
-* Chen Tao
-* Chinese
-* Christian
-* Christadelphians
-* Concernd Christians
+* Chen Tao [X]
+* Chinese [X]
+* Christian [X]
+* Christadelphians [X]
+* Concernd Christians [X]
 * Confucianism
 * Dami Xuanjiao
 * Devine Lightmission
