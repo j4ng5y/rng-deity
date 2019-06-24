@@ -21,12 +21,11 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Christian [X]
 * Christadelphians [X]
 * Concernd Christians [X]
-* Confucianism
-* Dami Xuanjiao
-* Devine Lightmission
-* Druidism
-* Druze
-* Dudism
+* Dami Xuanjiao [X]
+* Devine Lightmission [X]
+* Druidism [X]
+* Druze [X]
+* Dudeism [X]
 * Ebionites
 * Eckankar
 * Egyptian
@@ -37,7 +36,7 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Heathenism
 * Heavens Gate
 * Hikari No Wa
-* Hinduism
+* Hinduism [X]
 * Hookers for Jesus
 * Humanism
 * Islam
