@@ -30,7 +30,7 @@ jobs:
           command: |
             git config user.name "RNG-DEITY CI BOT"
             git config user.email "gregory.jordan.m@gmail.com"
-            git checkout releases/latest && git merge ${CIRCLE_BRANCH} && git commit -m "merging ${CIRCLE_BRANCH} to latest" && git push -u origin releases/latest
+            git checkout releases/latest && git merge ${CIRCLE_BRANCH} -m "merging ${CIRCLE_BRANCH} to latest" && git push -u origin releases/latest
       - run: 
           name: Build LATEST binaries
           command: go build -o /go/bin/rng-deity/rng-deity-latest-linux-amd64
