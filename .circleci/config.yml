@@ -64,4 +64,5 @@ workflows:
               only: /releases/.*/
       - release:
           requires:
-            - build
+            - linux_build
+            - windows_build
