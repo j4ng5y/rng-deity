@@ -23,19 +23,6 @@ jobs:
           root: /go/bin/rng-deity
           paths:
             - .
-  windows_build:
-    docker:
-      - image: golang:1.12-windowsservercore-1809
-    working_directory: C:\go\src\github.com\j4ng5y\rng-deity
-    steps:
-      - checkout
-      - run: go mod download
-      - run: go test -v ./...
-      - run: go build -o C:\go\bin\rng-deity\rng-deity-${VERSION}-win-amd64
-      - persist_to_workspace:
-          root: C:\go\bin\rng-deity
-          paths:
-            - .
 
   release:
     executor: golang
@@ -58,11 +45,6 @@ workflows:
           filters:
             branches:
               only: /releases/.*/
-      - windows_build:
-          filters:
-            branches:
-              only: /releases/.*/
       - release:
           requires:
             - linux_build
-            - windows_build
