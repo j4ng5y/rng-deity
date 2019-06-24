@@ -1,49 +1,47 @@
 # Golang CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-go/ for more details
-version: 2.0
-jobs:
-  linux_build:
+version: 2.1
+
+executors:
+  golang:
     environment:
       GO111MODULE: "on"
+      VERSION: 2018.06.24
     docker:
-      # specify the version
       - image: golang:1.12
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    #### TEMPLATE_NOTE: go expects specific checkout path representing url
-    #### expecting it in the form of
-    ####   /go/src/github.com/circleci/go-tool
-    ####   /go/src/bitbucket.org/circleci/go-tool
     working_directory: /go/src/github.com/j4ng5y/rng-deity
+
+jobs:
+  flow:
+    executor: golang
     steps:
       - checkout
-
-      # specify any bash command here prefixed with `run: `
       - run: go mod download
       - run: go test -v ./...
       - run: go build -o /go/bin/rng-deity-${CIRCLE_BRANCH}-linux-amd64
-  publish-github-release:
-    docker:
-      - image: cibuilds/github:0.10
+      - persist_to_workspace:
+          root: /go
+          paths:
+            - bin
+  downstream:
+    executor: golang
     steps:
       - attach_workspace:
           at: /go/bin
       - run:
           name: "Publish Release on GitHub"
           command: |
-            VERSION=$(rng-deity-${CIRCLE_BRANCH}-linux-amd64 --version)
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/
 
 workflows:
   version: 2
-  build_and_test:
+  build_test_deploy:
     jobs:
-      - linux_build:
+      - flow:
           filters:
             branches:
               only: /releases/.*/
+      - downstream:
+          requires:
+            - flow
