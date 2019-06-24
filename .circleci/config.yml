@@ -21,9 +21,9 @@ jobs:
       - run: go test -v ./...
       - run: go build -o /go/bin/rng-deity-${VERSION}-linux-amd64
       - persist_to_workspace:
-          root: /go
+          root: /go/bin
           paths:
-            - bin
+            - .
   release:
     executor: golang
     steps:
