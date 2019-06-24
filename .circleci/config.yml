@@ -33,6 +33,7 @@ jobs:
       - run:
           name: "on"
           command: |
+            ls /go/bin
             echo "ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-${VERSION}-linux-amd64"
             ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-${VERSION}-linux-amd64
 
