@@ -10,7 +10,7 @@ import (
 
 var rngDeity = &cobra.Command{
 	Use:   "rng-deity",
-	Short: "",
+	Short: "A little app that outputs a random deity from a number of religions.",
 	Long:  "",
 
 	Run: func(ccmd *cobra.Command, args []string) {
