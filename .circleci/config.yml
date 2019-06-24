@@ -59,6 +59,7 @@ workflows:
           filters:
             branches:
               only: /releases/.*/
+              ignore: /releases/latest/
       - release:
           requires:
             - linux_build
