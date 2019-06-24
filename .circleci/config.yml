@@ -54,7 +54,11 @@ workflows:
   version: 2
   build_test_deploy:
     jobs:
-      - build:
+      - linux_build:
+          filters:
+            branches:
+              only: /releases/.*/
+      - windows_build:
           filters:
             branches:
               only: /releases/.*/
