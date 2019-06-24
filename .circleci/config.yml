@@ -33,7 +33,7 @@ jobs:
       - run:
           name: "on"
           command: |
-            echo ${GITHUB_TOKEN} && echo ${CIRCLE_PROJECT_USERNAME} && echo ${CIRCLE_PROJECT_REPONAME} && echo ${CIRCLE_SHA1} && echo ${VERSION}
+            echo "ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-${VERSION}-linux-amd64"
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-${VERSION}-linux-amd64
 
 workflows:
