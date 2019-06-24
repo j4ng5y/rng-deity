@@ -82,3 +82,13 @@ This is a simple little app that outputs a single, random deity (in the format o
 If the item has an "X" after it, I'm calling it done for now as I don't really have a TON of time to research all of this stuff.
 
 Feel free to contribute. There is a file called "[template.go](https://github.com/j4ng5y/rng-deity/tree/master/deitylib/template.go)" that has a super basic template on how I wrote these things.
+
+## Usage
+
+```bash
+Usage:
+  rng-deity [flags]
+
+Flags:
+  -h, --help   help for rng-deity (this message)
+```
