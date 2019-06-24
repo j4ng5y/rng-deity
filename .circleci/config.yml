@@ -58,7 +58,7 @@ workflows:
       - linux_build:
           filters:
             branches:
-              only: /releases/\d\d\d\d\.\d\d.\d\d/
+              only: /releases/\d\d\d\d\.\d\d\.\d\d/
       - release:
           requires:
             - linux_build
