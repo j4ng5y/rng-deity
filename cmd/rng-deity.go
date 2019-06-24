@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/j4ng5y/random-deity/deitylib"
+	"github.com/j4ng5y/rng-deity/deitylib"
 	"github.com/spf13/cobra"
 )
 

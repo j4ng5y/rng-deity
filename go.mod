@@ -1,4 +1,4 @@
-module github.com/j4ng5y/random-deity
+module github.com/j4ng5y/rng-deity
 
 go 1.12
 
