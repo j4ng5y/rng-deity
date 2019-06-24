@@ -1,0 +1,50 @@
+# Golang CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-go/ for more details
+version: 2.1
+
+executors:
+  golang:
+    environment:
+      VERSION: 2019.06.24
+    docker:
+      - image: golang:1.12
+    working_directory: /go/src/github.com/j4ng5y/rng-deity
+
+jobs:
+  linux_build:
+    executor: golang
+    steps:
+      - checkout
+      - run: go mod download
+      - run: go test -v ./...
+      - run: go build -o /go/bin/rng-deity/rng-deity-${VERSION}-linux-amd64
+      - persist_to_workspace:
+          root: /go/bin/rng-deity
+          paths:
+            - .
+
+  release:
+    executor: golang
+    steps:
+      - attach_workspace:
+          at: /go/bin
+      - run: go get github.com/tcnksm/ghr
+      - run:
+          name: "on"
+          command: |
+            ls /go/bin
+            echo "ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-${VERSION}-linux-amd64"
+            ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-${VERSION}-linux-amd64
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - linux_build:
+          filters:
+            branches:
+              only: /releases/.*/
+      - release:
+          requires:
+            - linux_build
