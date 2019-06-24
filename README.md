@@ -1,6 +1,6 @@
-![RNG-DEITY](images/rng-deity.png)
-
 [![CircleCI](https://circleci.com/gh/j4ng5y/rng-deity/tree/releases%2F2019.06.24.svg?style=svg)](https://circleci.com/gh/j4ng5y/rng-deity/tree/releases%2F2019.06.24)
+[![License](https://img.shields.io/github/license/j4ng5y/rng-deity.svg)](https://github.com/j4ng5y/rng-deity/tree/master/LICENSE.txt)
+![RNG-DEITY](images/rng-deity.png)
 
 # RNG-DEITY
 
