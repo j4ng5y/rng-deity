@@ -1,4 +1,7 @@
 ![RNG-DEITY](images/rng-deity.png)
+
+[![CircleCI](https://circleci.com/gh/j4ng5y/rng-deity/tree/releases%2F2019.06.24.svg?style=svg)](https://circleci.com/gh/j4ng5y/rng-deity/tree/releases%2F2019.06.24)
+
 # RNG-DEITY
 
 In an attempt to be more inclusive in my Slack escapades, I wrote this to fill in the blank when I say "Thank {deity}" or something else of the sort.
