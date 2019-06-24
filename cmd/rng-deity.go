@@ -19,6 +19,7 @@ var rngDeity = &cobra.Command{
 	},
 }
 
+// Execute runs the application
 func Execute() {
 	err := rngDeity.Execute()
 	if err != nil {
