@@ -19,6 +19,8 @@ jobs:
       - run: go mod download
       - run: go test -v ./...
       - run: go build -o /go/bin/rng-deity/rng-deity-${VERSION}-linux-amd64
+      - run: git config user.name "RNG-DEITY CI BOT"
+      - run: git config user.email "gregory.jordan.m@gmail.com"
       - run: git checkout releases/latest && git merge ${CIRCLE_BRANCH} && git push
       - run: go build -o /go/bin/rng-deity/rng-deity-latest-linux-amd64
       - persist_to_workspace:
