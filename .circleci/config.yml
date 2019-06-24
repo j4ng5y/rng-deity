@@ -30,12 +30,12 @@ jobs:
           command: |
             git config user.name "RNG-DEITY CI BOT"
             git config user.email "gregory.jordan.m@gmail.com"
-            git checkout releases/latest && git merge ${CIRCLE_BRANCH} -m "merging ${CIRCLE_BRANCH} into latest" && git push -u origin releases/latest
+            git checkout releases/latest && git merge ${CIRCLE_BRANCH} --no-commit && git push -u origin releases/latest
             go build -o /go/bin/rng-deity/rng-deity-latest-linux-amd64
       - run: 
           name: Build MASTER binaries
           command: |
-            git checkout master && git merge releases/latest -m "merging releases/latest into master" && git push -u origin master
+            git checkout master && git merge releases/latest --no-commit && git push -u origin master
             go build -o /go/bin/rng-deity/rng-deity-linux-amd64
       - persist_to_workspace:
           root: /go/bin/rng-deity
