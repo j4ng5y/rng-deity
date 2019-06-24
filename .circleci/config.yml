@@ -58,8 +58,7 @@ workflows:
       - linux_build:
           filters:
             branches:
-              only: /releases/.*/
-              ignore: /releases/latest/
+              only: /releases/2019.*/
       - release:
           requires:
             - linux_build
