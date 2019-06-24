@@ -4,6 +4,8 @@
 version: 2.0
 jobs:
   build:
+    environment:
+      GO111MODULE: "on"
     docker:
       # specify the version
       - image: golang:1.12
@@ -22,7 +24,7 @@ jobs:
       - checkout
 
       # specify any bash command here prefixed with `run: `
-      - run: GO111MODULE=on go get -v -t -d ./...
+      - run: go mod download
       - run: go test -v ./...
 
 workflows:
