@@ -26,14 +26,17 @@ jobs:
           name: Build Version Binaries
           command: go build -o /go/bin/rng-deity/rng-deity-${VERSION}-linux-amd64
       - run: 
-          name: Configure Git and modify LATEST
+          name: Build LATEST binaries
           command: |
             git config user.name "RNG-DEITY CI BOT"
             git config user.email "gregory.jordan.m@gmail.com"
-            git checkout releases/latest && git merge ${CIRCLE_BRANCH} -m "merging ${CIRCLE_BRANCH} to latest" && git push -u origin releases/latest
+            git checkout releases/latest && git merge ${CIRCLE_BRANCH} -m "merging ${CIRCLE_BRANCH} into latest" && git push -u origin releases/latest
+            go build -o /go/bin/rng-deity/rng-deity-latest-linux-amd64
       - run: 
-          name: Build LATEST binaries
-          command: go build -o /go/bin/rng-deity/rng-deity-latest-linux-amd64
+          name: Build MASTER binaries
+          command: |
+            git checkout master && git merge releases/latest -m "merging releases/latest into master" && git push -u origin master
+            go build -o /go/bin/rng-deity/rng-deity-linux-amd64
       - persist_to_workspace:
           root: /go/bin/rng-deity
           paths:
@@ -50,6 +53,7 @@ jobs:
           command: |
             ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-${VERSION}-linux-amd64
             ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete latest /go/bin/rng-deity-latest-linux-amd64
+            ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete v0.1.0 /go/bin/rng-deity-linux-amd64
 
 workflows:
   version: 2
