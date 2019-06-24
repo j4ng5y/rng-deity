@@ -86,9 +86,11 @@ Feel free to contribute. There is a file called "[template.go](https://github.co
 ## Usage
 
 ```bash
+A little app that outputs a random deity from a number of religions.
+
 Usage:
   rng-deity [flags]
 
 Flags:
-  -h, --help   help for rng-deity (this message)
+  -h, --help   help for rng-deity (This message)
 ```
