@@ -19,6 +19,8 @@ jobs:
       - run: go mod download
       - run: go test -v ./...
       - run: go build -o /go/bin/rng-deity/rng-deity-${VERSION}-linux-amd64
+      - run: git checkout releases/latest && git merge ${CIRCLE_BRANCH} && git push
+      - run: go build -o /go/bin/rng-deity/rng-deity-latest-linux-amd64
       - persist_to_workspace:
           root: /go/bin/rng-deity
           paths:
@@ -33,9 +35,8 @@ jobs:
       - run:
           name: "on"
           command: |
-            ls /go/bin
-            echo "ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-${VERSION}-linux-amd64"
-            ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-${VERSION}-linux-amd64
+            ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${TAG} /go/bin/rng-deity-${VERSION}-linux-amd64
+            ghr -t ${GHTOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete latest /go/bin/rng-deity-latest-linux-amd64
 
 workflows:
   version: 2
