@@ -13,18 +13,18 @@ executors:
     working_directory: /go/src/github.com/j4ng5y/rng-deity
 
 jobs:
-  flow:
+  build:
     executor: golang
     steps:
       - checkout
       - run: go mod download
       - run: go test -v ./...
-      - run: go build -o /go/bin/rng-deity-${CIRCLE_BRANCH}-linux-amd64
+      - run: go build -o /go/bin/rng-deity-${VERSION}-linux-amd64
       - persist_to_workspace:
           root: /go
           paths:
             - bin
-  downstream:
+  release:
     executor: golang
     steps:
       - attach_workspace:
@@ -33,17 +33,17 @@ jobs:
       - run:
           name: "on"
           command: |
-            echo ${GITHUB_TOKEN} && echo ${CIRCLE_PROJECT_USERNAME} && echo ${CIRCLE_PROJECT_REPONAME} && echo ${CIRCLE_SHA1} && echo "$VERSION"
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete $VERSION /go/bin/rng-deity-*
+            echo ${GITHUB_TOKEN} && echo ${CIRCLE_PROJECT_USERNAME} && echo ${CIRCLE_PROJECT_REPONAME} && echo ${CIRCLE_SHA1} && echo ${VERSION}
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /go/bin/rng-deity-*
 
 workflows:
   version: 2
   build_test_deploy:
     jobs:
-      - flow:
+      - build:
           filters:
             branches:
               only: /releases/.*/
-      - downstream:
+      - release:
           requires:
-            - flow
+            - build
