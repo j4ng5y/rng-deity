@@ -4,8 +4,8 @@ import (
 	"github.com/google/uuid"
 )
 
-func createHinduDeities() {
-	hinduDeities := map[string]map[string]interface{}{
+func createDLMDeities() {
+	dlmDeities := map[string]map[string]interface{}{
 		"Vishnu": {
 			"Religion": "Hindu",
 			"Sex":      "Male",
@@ -114,7 +114,7 @@ func createHinduDeities() {
 		},
 	}
 
-	for k, v := range hinduDeities {
+	for k, v := range dlmDeities {
 		id := uuid.New().String()
 		DS = DS.NewDiety(id, k, v["Religion"].(string), v["Sex"].(string), v["Oversight"].([]string))
 	}

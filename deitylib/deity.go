@@ -99,4 +99,10 @@ func BuildDeityStruct() {
 	createChristadelphianDeities()
 	createConcernedChristianDeities()
 	createFamilyOfGodDeities()
+	createDamiXuanjiaoDeities()
+	createHinduDeities()
+	createDruidDeities()
+	createDruzeDeities()
+	createEbioniteDeities()
+	createEckankareities()
 }

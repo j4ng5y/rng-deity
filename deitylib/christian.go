@@ -13,6 +13,13 @@ func createChristianDeities() {
 				"Everything",
 			},
 		},
+		"Jesus Christ": {
+			"Religion": "Christian",
+			"Sex":      "Male",
+			"Oversight": []string{
+				"Everything",
+			},
+		},
 	}
 
 	for k, v := range christianDeities {
