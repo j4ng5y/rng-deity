@@ -28,9 +28,9 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Dudeism [X]
 * Ebionites [X]
 * Eckankar [X]
-* Egyptian
+* Egyptian [X] -- Major Deities Only, maybe I'll add the minor ones later
 * Family of God [X]
-* Gnosticism
+* Gnosticism [X]
 * Greek
 * Hare Krishna
 * Heathenism
