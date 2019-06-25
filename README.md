@@ -74,7 +74,7 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Unitaranism
 * Unitarian Universalism
 * Unitas Fratrum
-* Voodoo
+* Vodou (Voodoo) [X]
 * Wicca
 * Yezidism
 * Zhu Shen Jiao
