@@ -31,8 +31,8 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Egyptian [X] -- Major Deities Only, maybe I'll add the minor ones later
 * Family of God [X]
 * Gnosticism [X]
-* Greek
-* Hare Krishna
+* Greek [X]
+* Hare Krishna [X]
 * Heathenism
 * Heavens Gate
 * Hikari No Wa
