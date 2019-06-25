@@ -34,7 +34,6 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Greek [X]
 * Hare Krishna [X]
 * Heathenism [X]
-* Heavens Gate
 * Hikari No Wa
 * Hinduism [X]
 * Hookers for Jesus
@@ -83,7 +82,7 @@ This is a simple little app that outputs a single, random deity (in the format o
 
 If the item has an "X" after it, I'm calling it done for now as I don't really have a TON of time to research all of this stuff.
 
-Feel free to contribute. There is a file called "[template.go](https://github.com/j4ng5y/rng-deity/tree/master/deitylib/template.go)" that has a super basic template on how I wrote these things.
+Feel free to contribute. There is a command in the app (`new-religion`) that accepts the name (`religion-name` or `-n`) flag to create a new religion file in the [deitylib](https://github.com/j4ng5y/rng-deity/tree/master/deitylib/) folder based on the [religion_template.gotmpl](https://github.com/j4ng5y/rng-deity/tree/master/templates/religion_template.gotmpl) template file.
 
 ## Usage
 
@@ -92,7 +91,15 @@ A little app that outputs a random deity from a number of religions.
 
 Usage:
   rng-deity [flags]
+  rng-deity [command]
+
+Available Commands:
+  help         Help about any command
+  new-religion Create a new religion file
 
 Flags:
-  -h, --help   help for rng-deity (This message)
+  -h, --help      help for rng-deity
+      --version   version for rng-deity
+
+Use "rng-deity [command] --help" for more information about a command.
 ```
