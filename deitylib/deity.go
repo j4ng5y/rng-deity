@@ -107,4 +107,5 @@ func BuildDeityStruct() {
 	createEckankarDeities()
 	createEgyptianDeities()
 	createGnosticDeities()
+	createGreekDeities()
 }

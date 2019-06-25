@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"os"
 	"log"
+	"strings"
 	"text/template"
 	"github.com/spf13/cobra"
 )
 
 type newR struct {
 	Name string
+	LowerName string
 }
 
 var (
@@ -31,6 +33,7 @@ func init() {
 func newReligionCmd(ccmd *cobra.Command, args []string) {
 	RELIGION := newR{
 		Name: religionName,
+		LowerName: strings.ToLower(religionName),
 	}
 	tmpl, err := template.ParseFiles("./templates/religion_template.gotmpl")
 	if err != nil {
@@ -38,7 +41,7 @@ func newReligionCmd(ccmd *cobra.Command, args []string) {
 		os.Exit(1)
 	}
 
-	f, err := os.Create(fmt.Sprintf("./deitylib/%s.go", RELIGION.Name))
+	f, err := os.Create(fmt.Sprintf("./deitylib/%s.go", RELIGION.LowerName))
 	if err != nil {
 		log.Print(err)
 		os.Exit(1)
