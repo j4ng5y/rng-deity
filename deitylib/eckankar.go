@@ -4,7 +4,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func createEckankareities() {
+func createEckankarDeities() {
 	eckankarDeities := map[string]map[string]interface{}{
 		"God": {
 			"Religion": "Eckankar",
