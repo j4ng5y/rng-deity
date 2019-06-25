@@ -111,4 +111,5 @@ func BuildDeityStruct() {
 	createHareKrishnaDeities()
 	createHeathenismDeities()
 	createVodouDeities()
+	createIslamDeities()
 }
