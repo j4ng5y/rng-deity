@@ -13,7 +13,7 @@ var (
 		Use:     "rng-deity",
 		Short:   "A little app that outputs a random deity from a number of religions.",
 		Long:    "",
-		Version: "2018.06.24",
+		Version: "2018.06.25",
 
 		Run: func(ccmd *cobra.Command, args []string) {
 			deitylib.BuildDeityStruct()
@@ -21,6 +21,10 @@ var (
 		},
 	}
 )
+
+func init() {
+	rngDeity.AddCommand(newReligion)
+}
 
 // Execute runs the application
 func Execute() {
