@@ -33,7 +33,7 @@ This is a simple little app that outputs a single, random deity (in the format o
 * Gnosticism [X]
 * Greek [X]
 * Hare Krishna [X]
-* Heathenism
+* Heathenism [X]
 * Heavens Gate
 * Hikari No Wa
 * Hinduism [X]
